@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <title>Lab 1</title>
+        <style>
+            body
+            {
+                background-image: url('c.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                color: white;
+            }
+            label
+            {
+                color: black;
+                color: black;
+                padding: 11px 33px 9px 4px;
+            }
+            input
+            {
+                padding: 7px 3px 3px 11px;
+            }
+       
+        div
+        {
+            width: 250px;
+    height: 391px;
+    background-color: #14f3a8;
+    padding-left: 64px;
+    padding-right: 12px;
+    padding-top: 26px;
+    margin-right: 17px;
+    margin-left: 461px;
+    border-radius: 55px;
+    margin-top: 147px;
+    box-shadow: 10px 11px 12px -2px  #88890D;
+        }      
+        button
+        {
+        background-color: cyan;
+    border-radius: 18px;
+    padding: 10px 8px 11px 10px;
+    margin-left: 70px;
+    margin-top: 5px; 
+        }
+        </style>
+    </head>
+    <body>
+        <div>
+           
+                <label>Name*</label><br>
+                <input type="text" id="nameinput" placeholder="Enter Name" onchange="namevalid();"><br><br>
+                <label>Age* </label><br>
+                <input type="number" id="ageinput" placeholder="Enter Age" onchange="agevalid();"><br><br>
+                <label>Password* </label><br>
+                <input type="text" placeholder="Enter Password" id="passwordinput"><br><br>
+                <label>Confirm Password*   </label><br>
+                <input type="text" placeholder="Confirm Password" id="passwordinput2" onchange="passwordvalid();"><br><br>
+                <label> CNIC*  </label><br>
+                <input type="text" placeholder="XXXXX-XXXXXXX-X" id="cnicinput" onchange="cnicvalid();"><br><br>
+                <button type="button" onclick="namevalid();agevalid();passwordvalid();cnicvalid();">Submit</button>
+            
+        </div> 
+        <script>
+            function agevalid()
+            {
+                let x=document.getElementById("ageinput").value;
+                if(x<0||x>100)
+                {
+                    alert("Age Must be in the limit in 1 to 100");
+                    return false;
+                }
+            }
+            function passwordvalid()
+            {
+                let p=document.getElementById("passwordinput").value;
+                let cp=document.getElementById("passwordinput2").value;
+                if(p!==cp)
+                {
+                    alert("Confirm Password is not matching with Password !!!");
+                }
+            }
+            function cnicvalid()
+            {
+                let c=document.getElementById("cnicinput").value;
+                let pattern=/^[0-9+]{5}-[0-9+]{7}-[0-9+]{1}$/;
+                if(pattern.test(c))
+                {
+                    return true;
+                }
+                else{
+                    alert("Cnic Format is (XXXXX-XXXXXXX-X)");
+                }
+            }
+            function namevalid()
+            {
+                let n=document.getElementById("nameinput").value;
+                if(n>='A'&&n<='Z')
+                {
+                    return true;
+                }
+                else
+                {
+                    alert("Name must be in Characters Form!");
+                }
+            }
+        </script>
+    </body>
+</html>
